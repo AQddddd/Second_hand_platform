@@ -15,16 +15,19 @@ public class AdminServiceImpl implements AdminService {
     @Resource
     private AdminDao adminDao;
 
+    @Override
     public AdminModel login(String accountNumber, String adminPassword){
         return adminDao.login(accountNumber,adminPassword);
     }
 
+    @Override
     public PageVo<AdminModel> getAdminList(int page, int nums){
         List<AdminModel> list=adminDao.getList((page-1)*nums,nums);
         int count=adminDao.getCount();
         return new PageVo<>(list,count);
     }
 
+    @Override
     public boolean addAdmin(AdminModel adminModel){
         return adminDao.insert(adminModel)==1;
     }

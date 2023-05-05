@@ -29,6 +29,7 @@ public class FavoriteServiceImpl implements FavoriteService {
      * @param favoriteModel
      * @return
      */
+    @Override
     public boolean addFavorite(FavoriteModel favoriteModel){
         return favoriteDao.insert(favoriteModel)==1;
     }
@@ -38,6 +39,7 @@ public class FavoriteServiceImpl implements FavoriteService {
      * @param id
      * @return
      */
+    @Override
     public boolean deleteFavorite(Long id){
         return favoriteDao.deleteByPrimaryKey(id)==1;
     }
@@ -49,7 +51,8 @@ public class FavoriteServiceImpl implements FavoriteService {
      * @param idleId
      * @return
      */
-    public Integer isFavorite(Long userId,Long idleId){
+    @Override
+    public Integer isFavorite(Long userId, Long idleId){
         return favoriteDao.checkFavorite(userId,idleId);
     }
 
@@ -59,6 +62,7 @@ public class FavoriteServiceImpl implements FavoriteService {
      * @param userId
      * @return
      */
+    @Override
     public List<FavoriteModel> getAllFavorite(Long userId){
         List<FavoriteModel> list=favoriteDao.getMyFavorite(userId);
         if(list.size()>0){

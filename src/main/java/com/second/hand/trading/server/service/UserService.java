@@ -3,8 +3,6 @@ package com.second.hand.trading.server.service;
 import com.second.hand.trading.server.model.UserModel;
 import com.second.hand.trading.server.vo.PageVo;
 
-import java.util.List;
-
 public interface UserService {
 
     /**

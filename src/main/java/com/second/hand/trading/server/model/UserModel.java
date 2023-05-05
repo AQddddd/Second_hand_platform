@@ -38,8 +38,14 @@ public class UserModel implements Serializable {
      */
     private Date signInTime;
 
+    /**
+     * 用户状态
+     */
     private Byte userStatus;
 
+    /**
+     * 序列化版本号
+     */
     private static final long serialVersionUID = 1L;
 
     public Long getId() {

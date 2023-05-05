@@ -18,8 +18,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+/*
+ * 图片存储
+ * */
 @RestController
-public class FileController {
+public class  FileController {
 
     @Value("${userFilePath}")
     private String userFilePath;

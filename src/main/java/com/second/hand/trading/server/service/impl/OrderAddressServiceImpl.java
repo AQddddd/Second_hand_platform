@@ -18,6 +18,7 @@ public class OrderAddressServiceImpl implements OrderAddressService {
      * @param orderAddressModel
      * @return
      */
+    @Override
     public boolean addOrderAddress(OrderAddressModel orderAddressModel){
         return orderAddressDao.insert(orderAddressModel)==1;
     }
@@ -27,6 +28,7 @@ public class OrderAddressServiceImpl implements OrderAddressService {
      * @param orderAddressModel
      * @return
      */
+    @Override
     public boolean updateOrderAddress(OrderAddressModel orderAddressModel){
         orderAddressModel.setOrderId(null);
         return orderAddressDao.updateByPrimaryKeySelective(orderAddressModel)==1;
@@ -38,6 +40,7 @@ public class OrderAddressServiceImpl implements OrderAddressService {
      * @param orderId
      * @return
      */
+    @Override
     public OrderAddressModel getOrderAddress(Long orderId){
         return orderAddressDao.selectByOrderId(orderId);
     }

@@ -32,6 +32,7 @@ public class MessageServiceImpl implements MessageService {
      * @param messageModel
      * @return
      */
+    @Override
     public boolean addMessage(MessageModel messageModel){
         return messageDao.insert(messageModel)==1;
     }
@@ -41,6 +42,7 @@ public class MessageServiceImpl implements MessageService {
      * @param id
      * @return
      */
+    @Override
     public boolean deleteMessage(Long id){
         return messageDao.deleteByPrimaryKey(id)==1;
     }
@@ -50,6 +52,7 @@ public class MessageServiceImpl implements MessageService {
      * @param id
      * @return
      */
+    @Override
     public MessageModel getMessage(Long id){
         return messageDao.selectByPrimaryKey(id);
     }
@@ -61,6 +64,7 @@ public class MessageServiceImpl implements MessageService {
      * @param userId
      * @return
      */
+    @Override
     public List<MessageModel> getAllMyMessage(Long userId){
         List<MessageModel> list=messageDao.getMyMessage(userId);
         if(list.size()>0){
@@ -100,6 +104,7 @@ public class MessageServiceImpl implements MessageService {
      * @param idleId
      * @return
      */
+    @Override
     public List<MessageModel> getAllIdleMessage(Long idleId){
         List<MessageModel> list=messageDao.getIdleMessage(idleId);
         if(list.size()>0){

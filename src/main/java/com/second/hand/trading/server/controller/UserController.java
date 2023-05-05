@@ -14,6 +14,9 @@ import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 
+/*
+* 用户
+* */
 @RestController
 @RequestMapping("user")
 public class UserController {
@@ -41,8 +44,7 @@ public class UserController {
     }
 
     /**
-     * 登录，不安全，可伪造id，后期改进
-     *
+     * 登录
      * @param accountNumber
      * @param userPassword
      * @param response
@@ -61,7 +63,6 @@ public class UserController {
             return ResultVo.fail(ErrorMsg.ACCOUNT_Ban);
         }
         Cookie cookie = new Cookie("shUserId", String.valueOf(userModel.getId()));
-//        cookie.setMaxAge(60 * 60 * 24 * 30);
         cookie.setPath("/");
         cookie.setHttpOnly(false);
         response.addCookie(cookie);
@@ -70,7 +71,6 @@ public class UserController {
 
     /**
      * 退出登录
-     *
      * @param shUserId
      * @param response
      * @return
@@ -89,7 +89,6 @@ public class UserController {
 
     /**
      * 获取用户信息
-     *
      * @param id
      * @return
      */

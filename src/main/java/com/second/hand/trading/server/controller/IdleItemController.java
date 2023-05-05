@@ -11,6 +11,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+/*
+ * 商品信息
+ * */
 @RestController
 @RequestMapping("idle")
 public class IdleItemController {

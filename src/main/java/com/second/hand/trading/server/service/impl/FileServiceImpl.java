@@ -15,7 +15,8 @@ public class FileServiceImpl implements FileService {
     @Value("${userFilePath}")
     private String userFilePath;
 
-    public boolean uploadFile(MultipartFile multipartFile,String fileName)throws IOException {
+    @Override
+    public boolean uploadFile(MultipartFile multipartFile, String fileName)throws IOException {
         File fileDir = new File(userFilePath);
         if (!fileDir.exists()) {
             if (!fileDir.mkdirs()) {

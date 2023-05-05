@@ -11,6 +11,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+/*
+ * 收藏
+ * */
 @RestController
 @RequestMapping("/favorite")
 public class FavoriteController {

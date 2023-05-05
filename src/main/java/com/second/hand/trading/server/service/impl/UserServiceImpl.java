@@ -10,7 +10,6 @@ import javax.annotation.Resource;
 import java.util.List;
 
 
-
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -22,6 +21,7 @@ public class UserServiceImpl implements UserService {
      * @param id
      * @return
      */
+    @Override
     public UserModel getUser(Long id){
         return userDao.selectByPrimaryKey(id);
     }
@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
      * @param userPassword
      * @return
      */
+    @Override
     public UserModel userLogin(String accountNumber, String userPassword){
         return userDao.userLogin(accountNumber,userPassword);
     }
@@ -41,6 +42,7 @@ public class UserServiceImpl implements UserService {
      * @param userModel
      * @return
      */
+    @Override
     public boolean userSignIn(UserModel userModel){
         return userDao.insert(userModel) == 1;
     }
@@ -50,6 +52,7 @@ public class UserServiceImpl implements UserService {
      * @param userModel
      * @return
      */
+    @Override
     public boolean updateUserInfo(UserModel userModel){
         return userDao.updateByPrimaryKeySelective(userModel)==1;
     }
@@ -61,11 +64,20 @@ public class UserServiceImpl implements UserService {
      * @param id
      * @return
      */
-    public boolean updatePassword(String newPassword, String oldPassword,Long id){
+    @Override
+    public boolean updatePassword(String newPassword, String oldPassword, Long id){
         return userDao.updatePassword(newPassword,oldPassword,id)==1;
     }
 
-    public PageVo<UserModel> getUserByStatus(int status,int page ,int nums){
+    /**
+     * 用户分类查询
+     * @param status
+     * @param page
+     * @param nums
+     * @return
+     */
+    @Override
+    public PageVo<UserModel> getUserByStatus(int status, int page , int nums){
         List<UserModel> list;
         int count=0;
         if(status==0){

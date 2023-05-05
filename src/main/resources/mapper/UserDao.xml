@@ -72,7 +72,7 @@
       </if>
       <if test="userPassword != null">
         user_password,
-      </if>
+      </if>0
       <if test="nickname != null">
         nickname,
       </if>

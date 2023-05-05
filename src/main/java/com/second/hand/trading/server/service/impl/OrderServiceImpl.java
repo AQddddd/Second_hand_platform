@@ -48,6 +48,7 @@ public class OrderServiceImpl implements OrderService {
             lockMap.put(i,new ReentrantLock(true));
         }
     }
+    @Override
     public boolean addOrder(OrderModel orderModel){
         IdleItemModel idleItemModel=idleItemDao.selectByPrimaryKey(orderModel.getIdleId());
         System.out.println(idleItemModel.getIdleStatus());
@@ -96,6 +97,7 @@ public class OrderServiceImpl implements OrderService {
      * @param id
      * @return
      */
+    @Override
     public OrderModel getOrder(Long id){
         OrderModel orderModel=orderDao.selectByPrimaryKey(id);
         orderModel.setIdleItem(idleItemDao.selectByPrimaryKey(orderModel.getIdleId()));
@@ -108,6 +110,7 @@ public class OrderServiceImpl implements OrderService {
      * @param orderModel
      * @return
      */
+    @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean updateOrder(OrderModel orderModel){
         //不可修改的信息
@@ -154,6 +157,7 @@ public class OrderServiceImpl implements OrderService {
      * @param userId
      * @return
      */
+    @Override
     public List<OrderModel> getMyOrder(Long userId){
         List<OrderModel> list=orderDao.getMyOrder(userId);
         if(list.size()>0){
@@ -178,6 +182,7 @@ public class OrderServiceImpl implements OrderService {
      * @param userId
      * @return
      */
+    @Override
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public List<OrderModel> getMySoldIdle(Long userId){
         List<IdleItemModel> list=idleItemDao.getAllIdleItem(userId);
@@ -199,6 +204,7 @@ public class OrderServiceImpl implements OrderService {
         return orderList;
     }
 
+    @Override
     public PageVo<OrderModel> getAllOrder(int page, int nums){
         List<OrderModel> list=orderDao.getAllOrder((page-1)*nums,nums);
         if(list.size()>0){
@@ -219,6 +225,7 @@ public class OrderServiceImpl implements OrderService {
         return new PageVo<>(list,count);
     }
 
+    @Override
     public boolean deleteOrder(long id){
         return orderDao.deleteByPrimaryKey(id)==1;
     }

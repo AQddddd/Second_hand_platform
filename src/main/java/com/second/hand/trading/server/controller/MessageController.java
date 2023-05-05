@@ -11,6 +11,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+/*
+* 聊天信息
+* */
 @RestController
 @RequestMapping("/message")
 public class MessageController {

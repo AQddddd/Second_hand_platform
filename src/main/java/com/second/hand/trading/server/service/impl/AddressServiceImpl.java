@@ -21,6 +21,7 @@ public class AddressServiceImpl implements AddressService {
      * @param userId
      * @return
      */
+    @Override
     public List<AddressModel> getAddressByUser(Long userId){
         return addressDao.getAddressByUser(userId);
     }
@@ -32,7 +33,8 @@ public class AddressServiceImpl implements AddressService {
      * @param userId
      * @return
      */
-    public AddressModel getAddressById(Long id,Long userId){
+    @Override
+    public AddressModel getAddressById(Long id, Long userId){
         AddressModel addressModel=addressDao.selectByPrimaryKey(id);
         if(userId.equals(addressModel.getUserId())){
             return addressModel;
@@ -46,6 +48,7 @@ public class AddressServiceImpl implements AddressService {
      * @return
      */
     //取消使用事务，不存在并发修改一个用户的地址信息
+    @Override
     public boolean addAddress(AddressModel addressModel){
         if(addressModel.getDefaultFlag()){
             AddressModel a=new AddressModel();
@@ -71,6 +74,7 @@ public class AddressServiceImpl implements AddressService {
      * @return
      */
     //取消使用事务，不存在并发修改一个用户的地址信息
+    @Override
     public boolean updateAddress(AddressModel addressModel){
         if(addressModel.getDefaultFlag()){
             //同新增地址时的逻辑
@@ -99,6 +103,7 @@ public class AddressServiceImpl implements AddressService {
      * @param addressModel
      * @return
      */
+    @Override
     public boolean deleteAddress(AddressModel addressModel){
         return addressDao.deleteByPrimaryKeyAndUser(addressModel.getId(),addressModel.getUserId())==1;
     }

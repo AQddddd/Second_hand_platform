@@ -16,6 +16,9 @@ import javax.servlet.http.HttpSession;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+/*
+ * 管理员功能
+ * */
 @RestController
 @RequestMapping("admin")
 public class AdminController {
@@ -175,8 +178,9 @@ public class AdminController {
         UserModel userModel=new UserModel();
         userModel.setId(id);
         userModel.setUserStatus(status.byteValue());
-        if(userService.updateUserInfo(userModel))
+        if(userService.updateUserInfo(userModel)) {
             return ResultVo.success();
+        }
         return ResultVo.fail(ErrorMsg.SYSTEM_ERROR);
     }
 

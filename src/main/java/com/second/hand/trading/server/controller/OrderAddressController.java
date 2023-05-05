@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+/*
+* 商品地址
+* */
 @RestController
 @RequestMapping("/order-address")
 public class OrderAddressController {

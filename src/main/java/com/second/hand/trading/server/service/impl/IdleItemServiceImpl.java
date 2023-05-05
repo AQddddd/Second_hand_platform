@@ -28,6 +28,7 @@ public class IdleItemServiceImpl implements IdleItemService {
      * @param idleItemModel
      * @return
      */
+    @Override
     public boolean addIdleItem(IdleItemModel idleItemModel) {
         return idleItemDao.insert(idleItemModel) == 1;
     }
@@ -37,6 +38,7 @@ public class IdleItemServiceImpl implements IdleItemService {
      * @param id
      * @return
      */
+    @Override
     public IdleItemModel getIdleItem(Long id) {
         IdleItemModel idleItemModel=idleItemDao.selectByPrimaryKey(id);
         if(idleItemModel!=null){
@@ -51,6 +53,7 @@ public class IdleItemServiceImpl implements IdleItemService {
      * @param userId
      * @return
      */
+    @Override
     public List<IdleItemModel> getAllIdelItem(Long userId) {
         return idleItemDao.getAllIdleItem(userId);
     }
@@ -63,6 +66,7 @@ public class IdleItemServiceImpl implements IdleItemService {
      * @param nums
      * @return
      */
+    @Override
     public PageVo<IdleItemModel> findIdleItem(String findValue, int page, int nums) {
         List<IdleItemModel> list=idleItemDao.findIdleItem(findValue, (page - 1) * nums, nums);
         if(list.size()>0){
@@ -91,6 +95,7 @@ public class IdleItemServiceImpl implements IdleItemService {
      * @param nums
      * @return
      */
+    @Override
     public PageVo<IdleItemModel> findIdleItemByLable(int idleLabel, int page, int nums) {
         List<IdleItemModel> list=idleItemDao.findIdleItemByLable(idleLabel, (page - 1) * nums, nums);
         if(list.size()>0){
@@ -116,10 +121,12 @@ public class IdleItemServiceImpl implements IdleItemService {
      * @param idleItemModel
      * @return
      */
+    @Override
     public boolean updateIdleItem(IdleItemModel idleItemModel){
         return idleItemDao.updateByPrimaryKeySelective(idleItemModel)==1;
     }
 
+    @Override
     public PageVo<IdleItemModel> adminGetIdleList(int status, int page, int nums) {
         List<IdleItemModel> list=idleItemDao.getIdleItemByStatus(status, (page - 1) * nums, nums);
         if(list.size()>0){
